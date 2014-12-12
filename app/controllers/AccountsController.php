@@ -13,7 +13,7 @@ class AccountsController extends BaseController {
 	{
 		if (Auth::check())
 		{
-			return Reidrect::to('dashboard');
+			return Redirect::to('app');
 		}
 
         return View::make('accounts/login');
@@ -23,12 +23,12 @@ class AccountsController extends BaseController {
 	{
 		if (Auth::check())
 		{
-			return Reidrect::to('dashboard');
+			return Redirect::to('app');
 		}
 
 		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
 		{
-			return Redirect::intended('dashboard');
+			return Redirect::intended('app');
 		}
 		else
 		{

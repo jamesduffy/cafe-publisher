@@ -26,4 +26,6 @@ Route::post('signup', array('before' => 'csrf'), 'AccountsController@postSignup'
 
 Route::controller('pages', 'StaticPagesController');
 
+Route::get('app', 'AppController@getIndex');
+
 Route::get('/', 'HomeController@showWelcome');
