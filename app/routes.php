@@ -17,10 +17,12 @@ Route::group(array('prefix' => 'api'), function(){
 });
 
 Route::get('login', 'AccountsController@getLogin');
-Route::post('login', 'AccountsController@postLogin');
+Route::post('login', array('before' => 'csrf'), 'AccountsController@postLogin');
+
+Route::get('logout', 'AccountsController@getLogout');
 
 Route::get('signup', 'AccountsController@getSignup');
-Route::post('signup', 'AccountsController@postSignup');
+Route::post('signup', array('before' => 'csrf'), 'AccountsController@postSignup');
 
 Route::controller('pages', 'StaticPagesController');
 
