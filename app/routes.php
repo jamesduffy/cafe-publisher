@@ -11,13 +11,25 @@
 |
 */
 
+Event::listen('404', function()
+{
+	return Response::error('404');
+});
+
+Event::listen('500', function()
+{
+	return Response::error('500');
+});
+
 Route::group(array('prefix' => 'api'), function(){
 
 	Route::controller('sites', 'Api\SitesController');
 });
 
 Route::get('login', 'AccountsController@getLogin');
-Route::post('login', array('before' => 'csrf'), 'AccountsController@postLogin');
+Route::post('login', 'AccountsController@postLogin');
+
+Route::controller('password', 'RemindersController');
 
 Route::get('logout', 'AccountsController@getLogout');
 
@@ -28,4 +40,4 @@ Route::controller('pages', 'StaticPagesController');
 
 Route::get('app', 'AppController@getIndex');
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'HomeController@getIndex');

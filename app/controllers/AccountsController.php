@@ -13,7 +13,7 @@ class AccountsController extends BaseController {
 	{
 		if (Auth::check())
 		{
-			return Redirect::to('app');
+			return Redirect::action('AppController@getIndex');
 		}
 
         return View::make('accounts/login');
@@ -23,17 +23,15 @@ class AccountsController extends BaseController {
 	{
 		if (Auth::check())
 		{
-			return Redirect::to('app');
+			//return Redirect::action('AppController@getIndex');
 		}
 
-		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')), true))
 		{
-			return Redirect::intended('app');
+			//return Redirect::intended('app');
 		}
-		else
-		{
-			return Redirect::to('login');
-		}
+
+		return Redirect::action('AccountsController@getLogin');
 	}
 
 	public function getSignup()
@@ -57,14 +55,14 @@ class AccountsController extends BaseController {
 
 		Auth::login($user);
 
-		return Redirect::to('dashboard');
+		return Redirect::action('AppController@getIndex');
 	}
 
 	public function getLogout()
 	{
 		Auth::logout();
 
-		return Redirect::to('/');
+		return Redirect::action('HomeController@getIndex');
 	}
 
 }
