@@ -9,7 +9,7 @@
 
     <link href="/css/styles.css" rel="stylesheet">
     <style type="text/css">
-    .form-signin {
+    form {
         width: 400px;
         height: 300px;
         position: fixed;
