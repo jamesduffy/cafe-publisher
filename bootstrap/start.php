@@ -70,4 +70,6 @@ require $framework.'/Illuminate/Foundation/start.php';
 |
 */
 
+User::setStripeKey(Config::get('app.stripe'));
+
 return $app;
