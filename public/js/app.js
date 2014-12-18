@@ -3,14 +3,33 @@ var cafePublisherApp = angular.module('cafePublisherApp', [
     'cafePublisherControllers'
 ]);
 
-cafePublisherApp.config(['$routeProvider',
-function($routeProvider) {
+cafePublisherApp.config(
+function($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    
     $routeProvider.
-    when('/dashboard', {
+    when('/app/dashboard', {
         templateUrl: 'partials/dashboard.html',
         controller: 'DashboardCtrl'
     }).
+    when('/app/fuse', {
+        templateUrl: 'partials/fuse.html',
+        controller: 'FuseCtrl'
+    }).
+    when('/app/reports', {
+        templateUrl: 'partials/reports.html',
+        controller: 'ReportsCtrl'
+    }).
+    when('/app/accounts', {
+        templateUrl: 'partials/accounts.html',
+        controller: 'AccountsCtrl'
+    }).
+    when('/app/settings', {
+        templateUrl: 'partials/settings.html',
+        controller: 'SettingsCtrl'
+    }).
     otherwise({
-        redirectTo: '/dashboard'
+        redirectTo: '/app/dashboard'
     });
-}]);
+    
+});

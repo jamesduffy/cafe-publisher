@@ -22,8 +22,8 @@ Event::listen('500', function()
 });
 
 Route::group(array('prefix' => 'api'), function(){
-
-	Route::controller('sites', 'Api\SitesController');
+	Route::controller('accounts', 'Api\AccountsController');
+	Route::controller('users', 'Api\UsersController');
 });
 
 Route::get('login', 'AccountsController@getLogin');
@@ -38,6 +38,12 @@ Route::post('signup', array('before' => 'csrf'), 'AccountsController@postSignup'
 
 Route::controller('pages', 'StaticPagesController');
 
-Route::get('app', 'AppController@getIndex');
+Route::any('app/*', 'AppController@getIndex');
 
 Route::get('/', 'HomeController@getIndex');
+
+
+App::missing(function($exception)
+{
+    return View::make('app');
+});
