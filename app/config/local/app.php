@@ -15,4 +15,6 @@ return array(
 
 	'debug' => true,
 
+	'stripe' => 'pk_test_vxbvcvdRlK5El5NmwRu2i4jt',
+
 );

@@ -17,6 +17,17 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
+	| Stripe Key
+	|--------------------------------------------------------------------------
+	|
+	| Stripe key for payments
+	|
+	*/
+
+	'stripe' => '',
+
+	/*
+	|--------------------------------------------------------------------------
 	| Application URL
 	|--------------------------------------------------------------------------
 	|
@@ -121,6 +132,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+
+		'Laravel\Cashier\CashierServiceProvider',
 
 		'Intervention\Image\ImageServiceProvider',
 		'League\ColorExtractor\Laravel\ColorExtractorServiceProvider',
