@@ -4,23 +4,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 well">
-            {{ Form::open(array('url' => 'signup')) }}
+            {{ Form::open(['url' => 'signup']) }}
                 {{  $errors->first('email') }}
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    {{ Form::text('email', Input::get('email'), array('class'=>'form-control')) }}
+                    {{ Form::text('email', Input::get('email'), ['class'=>'form-control']) }}
                 </div>
 
                 {{  $errors->first('password') }}
                 <div class="form-group">
                     <label for="password">Password</label>
-                    {{ Form::password('password', array('class'=>'form-control')) }}
+                    {{ Form::password('password', ['class'=>'form-control']) }}
                 </div>
 
                 {{  $errors->first('password_confirmation') }}
                 <div class="form-group">
                     <label for="password_confirmation">Confirm Password</label>
-                    {{ Form::password('password_confirmation', array('class'=>'form-control')) }}
+                    {{ Form::password('password_confirmation', ['class'=>'form-control']) }}
                 </div>
 
                 {{  $errors->first('agreement') }}

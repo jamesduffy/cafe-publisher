@@ -29,8 +29,8 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -39,21 +39,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Cafe Publisher</a>
+                <a class="navbar-brand" href="/"><i class="fa fa-coffee"></i> Cafe Publisher</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a ng-href="/app/dashboard">Dashboard</a></li>
-                    <li><a ng-href="/app/fuse">Fuse</a></li>
-                    <li><a ng-href="/app/reports">Reports</a></li>
-                    <li><a ng-href="/app/accounts">Accounts</a></li>
+                    <li><a ng-href="/app/dashboard"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                    <li><a ng-href="/app/fuse"><i class="fa fa-magic"></i> Fuse</a></li>
+                    <li><a ng-href="/app/reports"><i class="fa fa-area-chart"></i> Reports</a></li>
+                    <li><a ng-href="/app/accounts"><i class="fa fa-user"></i> Accounts</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a ng-href="/app/settings">Settings</a></li>
-                    <li><a href="/logout" target="_self">Logout</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="<?php echo Gravatar::src(Auth::user()->email, 25); ?>" class="img-circle navbar-avatar"> <?php echo Auth::user()->first_name.' '.Auth::user()->last_name; ?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ng-href="/app/settings"><i class="fa fa-cog"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout" target="_self"><i class="fa fa-sign-out"></i> Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -71,7 +78,7 @@
                     Copyright <?php echo date('Y'); ?>
                 </p>
 
-                <p>Made with <i class="fa fa-heart"></i> in Sunny California.</p>
+                <p>Made with <i class="fa fa-heart text-danger"></i> in chilly California.</p>
             </div>
         </div>
 
