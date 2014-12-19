@@ -16,7 +16,7 @@ function ($scope, $http) {
 }]);
 
 cafePublisherControllers.controller('AccountsCtrl', ['$scope', '$http',
-function ($scope, $http) {
+function ($scope, $http, $window) {
 	$scope.accounts = 'List';
 
 	$scope.authorizeInstagram = function() {
@@ -28,7 +28,10 @@ function ($scope, $http) {
 	};
 
 	$scope.authorizeTwitter = function() {
-		console.log('authorize twitter called');
+		var twitterWindow = window.open('/app/social-accounts/twitter-login', 'Authorize Twitter', "width=800, height=500");
+		twitterWindow.callback = function(data) {
+
+		};
 	};
 
 }]);
