@@ -2,9 +2,7 @@
 
 	<div class="row">
 		<div class="col-lg-12">
-			<div class="page-header">
-				<h1>Settings</h1>
-			</div>			
+			<h1>Settings</h1>
 		</div>
 	</div>
 
@@ -18,10 +16,37 @@
 					<input type="email" class="form-control" id="InputEmail" placeholder="Email" ng-model="data.email">
 				</div>
 
+				<div class="form-group">
+					<label for="InputName">Name</label>
+					<div class="row">
+						<div class="col-xs-6">
+							<input type="text" class="form-control" id="InputFirstName" placeholder="First Name" ng-model="data.first_name">
+						</div>
+						<div class="col-xs-6">
+							<input type="text" class="form-control" id="InputLastName" placeholder="Last Name" ng-model="data.last_name">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="InputPhone">Phone</label>
+					<input type="text" class="form-control" id="InputPhone" placeholder="123-456-7890" ng-model="data.phone">
+				</div>
+
 			</div>
 
 			<div class="col-lg-4">
 				<input type="submit" class="btn btn-primary btn-block btn-lg" value="Save">
+
+				<hr>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Avatar</div>
+					<div class="panel-body">
+						<p><img src="{{data.avatar}}" class="img-circle img-thumbnail"></p>
+						<p><small>Your avatar is provided by Gravitar. Go to their settings page to update it.</small></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</form>

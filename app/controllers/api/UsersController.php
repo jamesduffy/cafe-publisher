@@ -19,6 +19,9 @@ class UsersController extends BaseController {
 				'avatar' => Gravatar::src(Auth::user()->email),
 				'email' => Auth::user()->email,
 				'email_confirmed' => Auth::user()->email_confirmed,
+				'first_name' => Auth::user()->first_name,
+				'last_name' => Auth::user()->last_name,
+				'phone' => Auth::user()->phone,
 			);
 
 			return Response::json($response, 200);
@@ -34,12 +37,18 @@ class UsersController extends BaseController {
 		{
 			$user = User::find(Auth::id());
 			$user->email = Input::get('email');
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+			$user->phone = Input::get('phone');
 			$user->save();
 
 			$response = array(
 				'avatar' => Gravatar::src($user->email),
 				'email' => $user->email,
 				'email_confirmed' => $user->email_confirmed,
+				'first_name' => $user->first_name,
+				'last_name' => $user->last_name,
+				'phone' => $user->phone,
 			);
 
 			return Response::json($response, 200);
@@ -49,10 +58,6 @@ class UsersController extends BaseController {
 	}
 
 	public function postCreate() {
-
-	}
-
-	public function postEdit() {
 
 	}
 
