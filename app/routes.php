@@ -24,11 +24,10 @@ Event::listen('500', function()
 Route::group(['prefix' => 'api'], function(){
 	Route::controller('accounts', 'Api\AccountsController');
 	Route::controller('users', 'Api\UsersController');
-});
 
-Route::get('{app?}', function() {
-	return File::get(public_path().'/app.html');
-})->where('app', '.*');
+    Route::controller('pages', 'Api\PagesController');
+    Route::controller('posts', 'Api\PostsController');
+});
 
 Route::get('login', 'AccountsController@getLogin');
 Route::post('login', 'AccountsController@postLogin');
@@ -47,6 +46,9 @@ Route::get('app/social-accounts/twitter-login-callback', 'SocialAccountControlle
 
 Route::get('/', 'HomeController@getIndex');
 
+Route::get('{app?}', function() {
+    return File::get(public_path().'/app.html');
+})->where('app', '.*');
 
 /*
 App::missing(function($exception)
