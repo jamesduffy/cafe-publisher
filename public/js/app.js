@@ -9,23 +9,19 @@ function($routeProvider, $locationProvider) {
     
     $routeProvider.
     when('/app/dashboard', {
-        templateUrl: 'partials/dashboard.html',
+        templateUrl: 'js/partials/dashboard.html',
         controller: 'DashboardCtrl'
     }).
-    when('/app/fuse', {
-        templateUrl: 'partials/fuse.html',
-        controller: 'FuseCtrl'
-    }).
     when('/app/reports', {
-        templateUrl: 'partials/reports.html',
+        templateUrl: 'js/partials/reports.html',
         controller: 'ReportsCtrl'
     }).
     when('/app/accounts', {
-        templateUrl: 'partials/accounts.html',
+        templateUrl: 'js/partials/accounts.html',
         controller: 'AccountsCtrl'
     }).
     when('/app/settings', {
-        templateUrl: 'partials/settings.html',
+        templateUrl: 'js/partials/settings.html',
         controller: 'SettingsCtrl'
     }).
     otherwise({

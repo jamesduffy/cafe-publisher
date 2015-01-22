@@ -21,10 +21,14 @@ Event::listen('500', function()
 	return Response::error('500');
 });
 
-Route::group(array('prefix' => 'api'), function(){
+Route::group(['prefix' => 'api'], function(){
 	Route::controller('accounts', 'Api\AccountsController');
 	Route::controller('users', 'Api\UsersController');
 });
+
+Route::get('{app?}', function() {
+	return File::get(public_path().'/app.html');
+})->where('app', '.*');
 
 Route::get('login', 'AccountsController@getLogin');
 Route::post('login', 'AccountsController@postLogin');
@@ -34,18 +38,19 @@ Route::controller('password', 'RemindersController');
 Route::get('logout', 'AccountsController@getLogout');
 
 Route::get('signup', 'AccountsController@getSignup');
-Route::post('signup', array('before' => 'csrf'), 'AccountsController@postSignup');
+Route::post('signup', ['before' => 'csrf'], 'AccountsController@postSignup');
 
 Route::controller('pages', 'StaticPagesController');
 
-Route::controller('app/social-accounts', 'SocialAccountController');
-
-Route::any('app/*', 'AppController@getIndex');
+Route::get('app/social-accounts/twitter-login', 'SocialAccountController@getTwitterLogin');
+Route::get('app/social-accounts/twitter-login-callback', 'SocialAccountController@getTwitterLoginCallback');
 
 Route::get('/', 'HomeController@getIndex');
 
 
+/*
 App::missing(function($exception)
 {
     return View::make('app');
 });
+*/

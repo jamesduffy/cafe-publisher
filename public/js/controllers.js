@@ -2,17 +2,17 @@ var cafePublisherControllers = angular.module('cafePublisherControllers', []);
 
 cafePublisherControllers.controller('DashboardCtrl', ['$scope', '$http',
 function ($scope, $http) {
-    
+
 }]);
 
 cafePublisherControllers.controller('FuseCtrl', ['$scope', '$http',
 function ($scope, $http) {
-    
+
 }]);
 
 cafePublisherControllers.controller('ReportsCtrl', ['$scope', '$http',
 function ($scope, $http) {
-    
+
 }]);
 
 cafePublisherControllers.controller('AccountsCtrl', ['$scope', '$http',
@@ -22,7 +22,7 @@ function ($scope, $http, $window) {
 	$scope.authorizeInstagram = function() {
 		console.log('authorize instagram called');
 	};
-    
+
 	$scope.authorizeTumblr = function() {
 		console.log('authorize tumblr called');
 	};
@@ -39,7 +39,7 @@ function ($scope, $http, $window) {
 cafePublisherControllers.controller('SettingsCtrl', ['$scope', '$http',
 function ($scope, $http) {
 	$scope.isSaved = false;
-	
+
 	$http.get('/api/users/me')
 	.success(function(data) {
 		$scope.data = data;
@@ -62,6 +62,6 @@ function ($scope, $http) {
 			console.log('error while trying to save to the api');
 		});
 
-		
+
 	};
 }]);

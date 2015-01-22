@@ -58,7 +58,7 @@ class SocialAccountController extends BaseController {
 
 	            print_r($token);
 	        }
-	        return Redirect::to('/')->with('flash_error', 'Crab! Something went wrong while signing you up!');
+	        //return Redirect::to('/')->with('flash_error', 'Crab! Something went wrong while signing you up!');
     	}
 	}
 
